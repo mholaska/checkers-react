@@ -6,3 +6,6 @@ This is my first project using **Next.js** as well as **React**, I've only worke
 ## Version 1.0
 - Gameboard and pieces were added
 - Pieces can move to their available spaces as well as perform single jumps over opponent, although the opponent is not removed from the board yet
+
+## Version 1.1
+- Single jumps can now be executed by both teams

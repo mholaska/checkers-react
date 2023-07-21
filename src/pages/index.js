@@ -127,6 +127,51 @@ export default function Game() {
 
   }
 
+  function getJumpedSquares(j,i){
+    for (let row = 0; row < 8; row++) {
+      for (let square = 0; square < 8; square++) {
+        
+        if(gameState.turn === red){
+          if(j + 2 === row && i - 2 === square && gamePosition[j+1][i-1].content === black ){
+            if(gameState.selectedSquare[0][0] === j+2 && gameState.selectedSquare[1][0] == i-2){
+            updateGamePosition(draft => {
+              draft[j+1][i-1].content = ''
+            })
+            
+          }
+        }
+          else if(j + 2 === row && i + 2 === square && gamePosition[j+1][i+1].content === black ){
+            if(gameState.selectedSquare[0][0] === j+2 && gameState.selectedSquare[1][0] == i+2){
+            updateGamePosition(draft => {
+              draft[j+1][i+1].content = ''
+            })
+            
+          }
+        }
+      }
+        if(gameState.turn === black){
+          if(j - 2 === row && i - 2 === square && gamePosition[j-1][i-1].content === red ){
+            if(gameState.selectedSquare[0][0] === j-2 && gameState.selectedSquare[1][0] == i-2){
+            updateGamePosition(draft => {
+              draft[j-1][i-1].content = ''
+            })
+          }
+          }
+          else if(j - 2 === row && i + 2 === square && gamePosition[j-1][i+1].content === red ){
+            if(gameState.selectedSquare[0][0] === j-2 && gameState.selectedSquare[1][0] == i+2){
+              updateGamePosition(draft => {
+                draft[j-1][i+1].content = ''
+                
+              })
+            }
+            
+            
+          }
+        }
+      }
+    }
+  }
+
   // This is the main logic of the game as the whole game is just clicking buttons
   function handleClick(square, i, j) {
 
@@ -151,6 +196,8 @@ export default function Game() {
           draft.turn = (gameState.turn === red ? black : red)
           draft.selectedSquare = null
         })
+        // Calculates which square was jumped during the move
+        getJumpedSquares(j,i)
         // Updates the position of the piece that moved & removed all of the possible indicators on the board
         updateGamePosition(draft => {
           draft[j][i].content = gameState.turn;
@@ -159,6 +206,11 @@ export default function Game() {
             for (let square = 0; square < 8; square++) {
               if (draft[row][square].content === possible) {
                 draft[row][square].content = ''
+              }
+              if(gameState.turn === red){
+                if(draft[row][square].content === black){
+                  
+                }
               }
 
             }
