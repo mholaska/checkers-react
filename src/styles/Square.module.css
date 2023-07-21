@@ -1,0 +1,47 @@
+.normalSize{
+    height: 50px;
+    width: 50px;
+    border-radius: 0px;
+    border: 0;
+    font-size: 32px;
+    padding: 0;
+    padding-bottom: 2px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.redSquare{
+    font-size: 32px;
+    padding-bottom: 3px;
+}
+.blackSquare{
+    font-size: 32px;
+    padding-bottom: 3px;
+    color: transparent;  
+    text-shadow: 0 0 0 black;
+
+}
+
+.backgroundWhite{
+    background-color: antiquewhite;
+}
+
+.backgroundWhite:hover{
+    background-color: rgb(215, 201, 183);
+}
+
+.backgroundBlack{
+    background-color: rgb(103, 87, 74);
+}
+
+.backgroundBlack:hover{
+    background-color: rgb(88, 75, 65);
+}
+
+.noHoverBackgroundBlack{
+    background-color: rgb(103, 87, 74);
+}
+
+.noHoverBackgroundWhite{
+    background-color: antiquewhite;
+}
